@@ -15,7 +15,7 @@
 
         <ui:define name="body">
             <h:form id="ArticlesListForm">
-                <p:panel header="#{bundle.ListArticlesTitle}">
+                <p:panel header="#{bundle.ListArticlesTitle}" rendered="#{articlesController !=null}">
                     <p:dataTable id="datalist" value="#{articlesController.items}" var="item"
                                  selectionMode="single" selection="#{articlesController.selected}"
                                  paginator="true"

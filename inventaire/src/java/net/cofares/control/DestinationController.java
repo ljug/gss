@@ -1,6 +1,6 @@
 package net.cofares.control;
 
-import net.cofares.entity.Destination;
+import net.cofares.Destination;
 import net.cofares.control.util.JsfUtil;
 import net.cofares.control.util.JsfUtil.PersistAction;
 import net.cofares.sb.DestinationFacade;

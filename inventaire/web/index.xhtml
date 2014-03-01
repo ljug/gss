@@ -1,21 +1,25 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Gestion inventaire /إدارة المخزون </title>
+        <title>Facelet Title</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
-        Gestion inventaire /إدارة المخزون       
+        Hello from Facelets
+        <p:panel >
+            Test
+        </p:panel>
         <br />
-        <h:link outcome="/articles/List" value="Tous les articles"/>
-        <br />
-        <h:link outcome="/destination/List" value="Toutes les Destinations"/>
-        <br />
-        <h:link outcome="/mouvement/List" value="Tous les Mouvements"/>
-        <br /><hr />
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <br />
+        <h:link outcome="/articles/List" value="Show All Articles Items"/>
+        <br />
+        <h:link outcome="/destination/List" value="Show All Destination Items"/>
+        <br />
+        <h:link outcome="/mouvement/List" value="Show All Mouvement Items"/>
     </h:body>
 
 

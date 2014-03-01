@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package net.cofares.entity;
+package net.cofares;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,7 +20,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -31,8 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author pfares
  */
 @Entity
-@Table(name = "Articles", catalog = "GestionStock", schema = "", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"referenceArticle"})})
+@Table(name = "Articles")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Articles.findAll", query = "SELECT a FROM Articles a"),
@@ -44,22 +42,22 @@ public class Articles implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idArticle", nullable = false)
+    @Column(name = "idArticle")
     private Integer idArticle;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @Column(name = "referenceArticle", nullable = false, length = 45)
+    @Column(name = "referenceArticle")
     private String referenceArticle;
     @Size(max = 45)
-    @Column(name = "nomArticle", length = 45)
+    @Column(name = "nomArticle")
     private String nomArticle;
     @Lob
     @Size(max = 65535)
-    @Column(name = "descriptionArtile", length = 65535)
+    @Column(name = "descriptionArtile")
     private String descriptionArtile;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticle")
-    private List<Mouvement> mouvementList;
+    private Collection<Mouvement> mouvementCollection;
 
     public Articles() {
     }
@@ -106,12 +104,12 @@ public class Articles implements Serializable {
     }
 
     @XmlTransient
-    public List<Mouvement> getMouvementList() {
-        return mouvementList;
+    public Collection<Mouvement> getMouvementCollection() {
+        return mouvementCollection;
     }
 
-    public void setMouvementList(List<Mouvement> mouvementList) {
-        this.mouvementList = mouvementList;
+    public void setMouvementCollection(Collection<Mouvement> mouvementCollection) {
+        this.mouvementCollection = mouvementCollection;
     }
 
     @Override
@@ -136,7 +134,7 @@ public class Articles implements Serializable {
 
     @Override
     public String toString() {
-        return "net.cofares.entity.Articles[ idArticle=" + idArticle + " ]";
+        return "net.cofares.Articles[ idArticle=" + idArticle + " ]";
     }
     
 }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package net.cofares.entity;
+package net.cofares;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author pfares
  */
 @Entity
-@Table(name = "Mouvement", catalog = "GestionStock", schema = "")
+@Table(name = "Mouvement")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Mouvement.findAll", query = "SELECT m FROM Mouvement m"),
@@ -41,24 +41,24 @@ public class Mouvement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idMouvement", nullable = false)
+    @Column(name = "idMouvement")
     private Integer idMouvement;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "qt", nullable = false)
+    @Column(name = "qt")
     private int qt;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "Mouvementcol", nullable = false)
+    @Column(name = "Mouvementcol")
     @Temporal(TemporalType.TIMESTAMP)
     private Date mouvementcol;
-    @JoinColumn(name = "idArticle", referencedColumnName = "idArticle", nullable = false)
+    @JoinColumn(name = "idArticle", referencedColumnName = "idArticle")
     @ManyToOne(optional = false)
     private Articles idArticle;
-    @JoinColumn(name = "MouvementTo", referencedColumnName = "idDestination", nullable = false)
+    @JoinColumn(name = "MouvementTo", referencedColumnName = "idDestination")
     @ManyToOne(optional = false)
     private Destination mouvementTo;
-    @JoinColumn(name = "MouvementFrom", referencedColumnName = "idDestination", nullable = false)
+    @JoinColumn(name = "MouvementFrom", referencedColumnName = "idDestination")
     @ManyToOne(optional = false)
     private Destination mouvementFrom;
 
@@ -145,7 +145,7 @@ public class Mouvement implements Serializable {
 
     @Override
     public String toString() {
-        return "net.cofares.entity.Mouvement[ idMouvement=" + idMouvement + " ]";
+        return "net.cofares.Mouvement[ idMouvement=" + idMouvement + " ]";
     }
     
 }

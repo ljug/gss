@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package net.cofares.entity;
+package net.cofares;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,7 +20,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -31,8 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author pfares
  */
 @Entity
-@Table(name = "Destination", catalog = "GestionStock", schema = "", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"referenceDestination"})})
+@Table(name = "Destination")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Destination.findAll", query = "SELECT d FROM Destination d"),
@@ -43,21 +41,21 @@ public class Destination implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idDestination", nullable = false)
+    @Column(name = "idDestination")
     private Integer idDestination;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @Column(name = "referenceDestination", nullable = false, length = 45)
+    @Column(name = "referenceDestination")
     private String referenceDestination;
     @Lob
     @Size(max = 65535)
-    @Column(name = "description", length = 65535)
+    @Column(name = "description")
     private String description;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "mouvementTo")
-    private List<Mouvement> mouvementList;
+    private Collection<Mouvement> mouvementCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "mouvementFrom")
-    private List<Mouvement> mouvementList1;
+    private Collection<Mouvement> mouvementCollection1;
 
     public Destination() {
     }
@@ -96,21 +94,21 @@ public class Destination implements Serializable {
     }
 
     @XmlTransient
-    public List<Mouvement> getMouvementList() {
-        return mouvementList;
+    public Collection<Mouvement> getMouvementCollection() {
+        return mouvementCollection;
     }
 
-    public void setMouvementList(List<Mouvement> mouvementList) {
-        this.mouvementList = mouvementList;
+    public void setMouvementCollection(Collection<Mouvement> mouvementCollection) {
+        this.mouvementCollection = mouvementCollection;
     }
 
     @XmlTransient
-    public List<Mouvement> getMouvementList1() {
-        return mouvementList1;
+    public Collection<Mouvement> getMouvementCollection1() {
+        return mouvementCollection1;
     }
 
-    public void setMouvementList1(List<Mouvement> mouvementList1) {
-        this.mouvementList1 = mouvementList1;
+    public void setMouvementCollection1(Collection<Mouvement> mouvementCollection1) {
+        this.mouvementCollection1 = mouvementCollection1;
     }
 
     @Override
@@ -135,7 +133,7 @@ public class Destination implements Serializable {
 
     @Override
     public String toString() {
-        return "net.cofares.entity.Destination[ idDestination=" + idDestination + " ]";
+        return "net.cofares.Destination[ idDestination=" + idDestination + " ]";
     }
     
 }

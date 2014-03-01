@@ -1,6 +1,6 @@
 package net.cofares.control;
 
-import net.cofares.entity.Articles;
+import net.cofares.Articles;
 import net.cofares.control.util.JsfUtil;
 import net.cofares.control.util.JsfUtil.PersistAction;
 import net.cofares.sb.ArticlesFacade;

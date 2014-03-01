@@ -9,7 +9,7 @@ package net.cofares.sb;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import net.cofares.entity.Mouvement;
+import net.cofares.Mouvement;
 
 /**
  *
