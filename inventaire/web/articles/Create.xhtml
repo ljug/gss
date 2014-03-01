@@ -12,8 +12,6 @@
             <h:form id="ArticlesCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{articlesController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateArticlesLabel_idArticle}" for="idArticle" />
-                        <p:inputText id="idArticle" value="#{articlesController.selected.idArticle}" title="#{bundle.CreateArticlesTitle_idArticle}" required="true" requiredMessage="#{bundle.CreateArticlesRequiredMessage_idArticle}"/>
                         <p:outputLabel value="#{bundle.CreateArticlesLabel_referenceArticle}" for="referenceArticle" />
                         <p:inputText id="referenceArticle" value="#{articlesController.selected.referenceArticle}" title="#{bundle.CreateArticlesTitle_referenceArticle}" required="true" requiredMessage="#{bundle.CreateArticlesRequiredMessage_referenceArticle}"/>
                         <p:outputLabel value="#{bundle.CreateArticlesLabel_nomArticle}" for="nomArticle" />

@@ -12,8 +12,6 @@
             <h:form id="DestinationCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{destinationController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateDestinationLabel_idDestination}" for="idDestination" />
-                        <p:inputText id="idDestination" value="#{destinationController.selected.idDestination}" title="#{bundle.CreateDestinationTitle_idDestination}" required="true" requiredMessage="#{bundle.CreateDestinationRequiredMessage_idDestination}"/>
                         <p:outputLabel value="#{bundle.CreateDestinationLabel_referenceDestination}" for="referenceDestination" />
                         <p:inputText id="referenceDestination" value="#{destinationController.selected.referenceDestination}" title="#{bundle.CreateDestinationTitle_referenceDestination}" required="true" requiredMessage="#{bundle.CreateDestinationRequiredMessage_referenceDestination}"/>
                         <p:outputLabel value="#{bundle.CreateDestinationLabel_description}" for="description" />

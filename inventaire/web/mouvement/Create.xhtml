@@ -12,8 +12,6 @@
             <h:form id="MouvementCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{mouvementController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateMouvementLabel_idMouvement}" for="idMouvement" />
-                        <p:inputText id="idMouvement" value="#{mouvementController.selected.idMouvement}" title="#{bundle.CreateMouvementTitle_idMouvement}" required="true" requiredMessage="#{bundle.CreateMouvementRequiredMessage_idMouvement}"/>
                         <p:outputLabel value="#{bundle.CreateMouvementLabel_qt}" for="qt" />
                         <p:inputText id="qt" value="#{mouvementController.selected.qt}" title="#{bundle.CreateMouvementTitle_qt}" required="true" requiredMessage="#{bundle.CreateMouvementRequiredMessage_qt}"/>
                         <p:outputLabel value="#{bundle.CreateMouvementLabel_mouvementcol}" for="mouvementcol" />
