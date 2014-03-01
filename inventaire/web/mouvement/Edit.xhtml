@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MouvementEditDlg" widgetVar="MouvementEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditMouvementTitle}">
+            <h:form id="MouvementEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{mouvementController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditMouvementLabel_idMouvement}" for="idMouvement" />
+                        <p:inputText id="idMouvement" value="#{mouvementController.selected.idMouvement}" title="#{bundle.EditMouvementTitle_idMouvement}" required="true" requiredMessage="#{bundle.EditMouvementRequiredMessage_idMouvement}"/>
+                        <p:outputLabel value="#{bundle.EditMouvementLabel_qt}" for="qt" />
+                        <p:inputText id="qt" value="#{mouvementController.selected.qt}" title="#{bundle.EditMouvementTitle_qt}" required="true" requiredMessage="#{bundle.EditMouvementRequiredMessage_qt}"/>
+                        <p:outputLabel value="#{bundle.EditMouvementLabel_mouvementcol}" for="mouvementcol" />
+                        <p:calendar id="mouvementcol" pattern="MM/dd/yyyy HH:mm:ss" value="#{mouvementController.selected.mouvementcol}" title="#{bundle.EditMouvementTitle_mouvementcol}" required="true" requiredMessage="#{bundle.EditMouvementRequiredMessage_mouvementcol}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditMouvementLabel_idArticle}" for="idArticle" />
+                        <p:selectOneMenu id="idArticle" value="#{mouvementController.selected.idArticle}" required="true" requiredMessage="#{bundle.EditMouvementRequiredMessage_idArticle}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{articlesController.itemsAvailableSelectOne}"
+                                           var="idArticleItem"
+                                           itemValue="#{idArticleItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditMouvementLabel_mouvementTo}" for="mouvementTo" />
+                        <p:selectOneMenu id="mouvementTo" value="#{mouvementController.selected.mouvementTo}" required="true" requiredMessage="#{bundle.EditMouvementRequiredMessage_mouvementTo}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{destinationController.itemsAvailableSelectOne}"
+                                           var="mouvementToItem"
+                                           itemValue="#{mouvementToItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditMouvementLabel_mouvementFrom}" for="mouvementFrom" />
+                        <p:selectOneMenu id="mouvementFrom" value="#{mouvementController.selected.mouvementFrom}" required="true" requiredMessage="#{bundle.EditMouvementRequiredMessage_mouvementFrom}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{destinationController.itemsAvailableSelectOne}"
+                                           var="mouvementFromItem"
+                                           itemValue="#{mouvementFromItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{mouvementController.update}" value="#{bundle.Save}" update="display,:MouvementListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MouvementEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MouvementEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ArticlesViewDlg" widgetVar="ArticlesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewArticlesTitle}">
+            <h:form id="ArticlesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{articlesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewArticlesLabel_idArticle}"/>
+                        <h:outputText value="#{articlesController.selected.idArticle}" title="#{bundle.ViewArticlesTitle_idArticle}"/>
+                        <h:outputText value="#{bundle.ViewArticlesLabel_referenceArticle}"/>
+                        <h:outputText value="#{articlesController.selected.referenceArticle}" title="#{bundle.ViewArticlesTitle_referenceArticle}"/>
+                        <h:outputText value="#{bundle.ViewArticlesLabel_nomArticle}"/>
+                        <h:outputText value="#{articlesController.selected.nomArticle}" title="#{bundle.ViewArticlesTitle_nomArticle}"/>
+                        <h:outputText value="#{bundle.ViewArticlesLabel_descriptionArtile}"/>
+                        <h:outputText value="#{articlesController.selected.descriptionArtile}" title="#{bundle.ViewArticlesTitle_descriptionArtile}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ArticlesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

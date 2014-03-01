@@ -1,8 +1,4 @@
-
-
-
 CREATE DATABASE `GestionStock` DEFAULT CHARACTER SET utf8  ;
-
 
 
 CREATE TABLE `Articles` (

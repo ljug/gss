@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MouvementViewDlg" widgetVar="MouvementViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMouvementTitle}">
+            <h:form id="MouvementViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{mouvementController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMouvementLabel_idMouvement}"/>
+                        <h:outputText value="#{mouvementController.selected.idMouvement}" title="#{bundle.ViewMouvementTitle_idMouvement}"/>
+                        <h:outputText value="#{bundle.ViewMouvementLabel_qt}"/>
+                        <h:outputText value="#{mouvementController.selected.qt}" title="#{bundle.ViewMouvementTitle_qt}"/>
+                        <h:outputText value="#{bundle.ViewMouvementLabel_mouvementcol}"/>
+                        <h:outputText value="#{mouvementController.selected.mouvementcol}" title="#{bundle.ViewMouvementTitle_mouvementcol}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewMouvementLabel_idArticle}"/>
+                        <h:outputText value="#{mouvementController.selected.idArticle}" title="#{bundle.ViewMouvementTitle_idArticle}"/>
+                        <h:outputText value="#{bundle.ViewMouvementLabel_mouvementTo}"/>
+                        <h:outputText value="#{mouvementController.selected.mouvementTo}" title="#{bundle.ViewMouvementTitle_mouvementTo}"/>
+                        <h:outputText value="#{bundle.ViewMouvementLabel_mouvementFrom}"/>
+                        <h:outputText value="#{mouvementController.selected.mouvementFrom}" title="#{bundle.ViewMouvementTitle_mouvementFrom}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MouvementViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

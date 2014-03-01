@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ArticlesCreateDlg" widgetVar="ArticlesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateArticlesTitle}">
+            <h:form id="ArticlesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{articlesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateArticlesLabel_idArticle}" for="idArticle" />
+                        <p:inputText id="idArticle" value="#{articlesController.selected.idArticle}" title="#{bundle.CreateArticlesTitle_idArticle}" required="true" requiredMessage="#{bundle.CreateArticlesRequiredMessage_idArticle}"/>
+                        <p:outputLabel value="#{bundle.CreateArticlesLabel_referenceArticle}" for="referenceArticle" />
+                        <p:inputText id="referenceArticle" value="#{articlesController.selected.referenceArticle}" title="#{bundle.CreateArticlesTitle_referenceArticle}" required="true" requiredMessage="#{bundle.CreateArticlesRequiredMessage_referenceArticle}"/>
+                        <p:outputLabel value="#{bundle.CreateArticlesLabel_nomArticle}" for="nomArticle" />
+                        <p:inputText id="nomArticle" value="#{articlesController.selected.nomArticle}" title="#{bundle.CreateArticlesTitle_nomArticle}" />
+                        <p:outputLabel value="#{bundle.CreateArticlesLabel_descriptionArtile}" for="descriptionArtile" />
+                        <p:inputTextarea rows="4" cols="30" id="descriptionArtile" value="#{articlesController.selected.descriptionArtile}" title="#{bundle.CreateArticlesTitle_descriptionArtile}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{articlesController.create}" value="#{bundle.Save}" update="display,:ArticlesListForm:datalist,:growl" oncomplete="handleSubmit(args,'ArticlesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ArticlesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DestinationEditDlg" widgetVar="DestinationEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDestinationTitle}">
+            <h:form id="DestinationEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{destinationController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDestinationLabel_idDestination}" for="idDestination" />
+                        <p:inputText id="idDestination" value="#{destinationController.selected.idDestination}" title="#{bundle.EditDestinationTitle_idDestination}" required="true" requiredMessage="#{bundle.EditDestinationRequiredMessage_idDestination}"/>
+                        <p:outputLabel value="#{bundle.EditDestinationLabel_referenceDestination}" for="referenceDestination" />
+                        <p:inputText id="referenceDestination" value="#{destinationController.selected.referenceDestination}" title="#{bundle.EditDestinationTitle_referenceDestination}" required="true" requiredMessage="#{bundle.EditDestinationRequiredMessage_referenceDestination}"/>
+                        <p:outputLabel value="#{bundle.EditDestinationLabel_description}" for="description" />
+                        <p:inputTextarea rows="4" cols="30" id="description" value="#{destinationController.selected.description}" title="#{bundle.EditDestinationTitle_description}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{destinationController.update}" value="#{bundle.Save}" update="display,:DestinationListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DestinationEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DestinationEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

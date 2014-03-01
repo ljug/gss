@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MouvementCreateDlg" widgetVar="MouvementCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMouvementTitle}">
+            <h:form id="MouvementCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{mouvementController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateMouvementLabel_idMouvement}" for="idMouvement" />
+                        <p:inputText id="idMouvement" value="#{mouvementController.selected.idMouvement}" title="#{bundle.CreateMouvementTitle_idMouvement}" required="true" requiredMessage="#{bundle.CreateMouvementRequiredMessage_idMouvement}"/>
+                        <p:outputLabel value="#{bundle.CreateMouvementLabel_qt}" for="qt" />
+                        <p:inputText id="qt" value="#{mouvementController.selected.qt}" title="#{bundle.CreateMouvementTitle_qt}" required="true" requiredMessage="#{bundle.CreateMouvementRequiredMessage_qt}"/>
+                        <p:outputLabel value="#{bundle.CreateMouvementLabel_mouvementcol}" for="mouvementcol" />
+                        <p:calendar id="mouvementcol" pattern="MM/dd/yyyy HH:mm:ss" value="#{mouvementController.selected.mouvementcol}" title="#{bundle.EditMouvementTitle_mouvementcol}" required="true" requiredMessage="#{bundle.EditMouvementRequiredMessage_mouvementcol}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateMouvementLabel_idArticle}" for="idArticle" />
+                        <p:selectOneMenu id="idArticle" value="#{mouvementController.selected.idArticle}" required="true" requiredMessage="#{bundle.EditMouvementRequiredMessage_idArticle}">
+                            <f:selectItems value="#{articlesController.itemsAvailableSelectOne}"
+                                           var="idArticleItem"
+                                           itemValue="#{idArticleItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateMouvementLabel_mouvementTo}" for="mouvementTo" />
+                        <p:selectOneMenu id="mouvementTo" value="#{mouvementController.selected.mouvementTo}" required="true" requiredMessage="#{bundle.EditMouvementRequiredMessage_mouvementTo}">
+                            <f:selectItems value="#{destinationController.itemsAvailableSelectOne}"
+                                           var="mouvementToItem"
+                                           itemValue="#{mouvementToItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateMouvementLabel_mouvementFrom}" for="mouvementFrom" />
+                        <p:selectOneMenu id="mouvementFrom" value="#{mouvementController.selected.mouvementFrom}" required="true" requiredMessage="#{bundle.EditMouvementRequiredMessage_mouvementFrom}">
+                            <f:selectItems value="#{destinationController.itemsAvailableSelectOne}"
+                                           var="mouvementFromItem"
+                                           itemValue="#{mouvementFromItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{mouvementController.create}" value="#{bundle.Save}" update="display,:MouvementListForm:datalist,:growl" oncomplete="handleSubmit(args,'MouvementCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MouvementCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
