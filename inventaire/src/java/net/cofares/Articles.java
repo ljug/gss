@@ -134,7 +134,7 @@ public class Articles implements Serializable {
 
     @Override
     public String toString() {
-        return "net.cofares.Articles[ idArticle=" + idArticle + " ]";
+        return "[idArticle:" + referenceArticle + ":" + nomArticle+ "]";
     }
     
 }

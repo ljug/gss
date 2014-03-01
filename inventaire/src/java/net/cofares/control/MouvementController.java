@@ -1,23 +1,23 @@
 package net.cofares.control;
 
-import net.cofares.Mouvement;
-import net.cofares.control.util.JsfUtil;
-import net.cofares.control.util.JsfUtil.PersistAction;
-import net.cofares.sb.MouvementFacade;
-
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Named;
+import net.cofares.Mouvement;
+import net.cofares.control.util.JsfUtil;
+import net.cofares.control.util.JsfUtil.PersistAction;
+import net.cofares.sb.MouvementFacade;
 
 @Named("mouvementController")
 @SessionScoped
@@ -52,6 +52,7 @@ public class MouvementController implements Serializable {
     public Mouvement prepareCreate() {
         selected = new Mouvement();
         initializeEmbeddableKey();
+        selected.setMouvementcol(new Date());
         return selected;
     }
 

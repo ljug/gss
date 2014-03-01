@@ -4,17 +4,20 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>إدارة الموجودات ISSAE Cnam Liban</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        Gestion inventaire / إدارة الموجودات
         <p:panel >
-            Test
+            <p:button outcome="/articles/List" value="tous les Articles بضائع"/>
+            <br />
+            <p:button  outcome="/destination/List" value="Toutes les Destinations الوجهة"/>
+            <br />
+            <p:button outcome="/mouvement/List" value="tous les Mouvements حركة"/>
         </p:panel>
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <br />
+
+
         <h:link outcome="/articles/List" value="Show All Articles Items"/>
         <br />
         <h:link outcome="/destination/List" value="Show All Destination Items"/>
