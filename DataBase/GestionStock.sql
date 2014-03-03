@@ -72,7 +72,7 @@ CREATE TABLE `Destination` (
 
 LOCK TABLES `Destination` WRITE;
 /*!40000 ALTER TABLE `Destination` DISABLE KEYS */;
-INSERT INTO `Destination` VALUES (1,'dépôt principal','Stock global de l\'ISSAE avant dispatching\r\n???????? ???????'),(2,'Fournisseur','Fournisseur quelconque / ?? ????'),(3,'Laboratoire informatique','Les laboratoires informatique équipe Khaled Sawaya'),(4,'Exterieur','Provenances quelconque ?? ?????');
+INSERT INTO `Destination` VALUES (1,'dépôt principal','Stock global de l\'ISSAE avant dispatching مخزن المركزي'),(2,'Fournisseur','Fournisseur quelconque / ?? ????'),(3,'Laboratoire informatique','Les laboratoires informatique équipe Khaled Sawaya'),(4,'Exterieur','Provenances quelconque ?? ?????');
 /*!40000 ALTER TABLE `Destination` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,4 +118,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-03-03 11:02:29
+-- Dump completed on 2014-03-03 11:16:07
