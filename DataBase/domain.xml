@@ -1,10 +1,18 @@
-    <jdbc-connection-pool connection-validation-method="auto-commit" datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" wrap-jdbc-objects="false" res-type="javax.sql.DataSource" name="mysql_GestionStock_rootPool">
-      <property name="URL" value="jdbc:mysql://localhost:3306/GestionStock?zeroDateTimeBehavior=convertToNull"></property>
+    
+INSERT IN RESOURCE
+<jdbc-connection-pool connection-validation-method="auto-commit" datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" wrap-jdbc-objects="false" res-type="javax.sql.DataSource" name="mysql_GestionStock_rootPool">
       <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-      <property name="Password" value="pascal00"></property>
+      <property name="Password" value="password"></property>
       <property name="portNumber" value="3306"></property>
       <property name="databaseName" value="GestionStock"></property>
-      <property name="User" value="root"></property>
+      <property name="User" value="user"></property>
       <property name="serverName" value="localhost"></property>
+      <property name="zeroDateTimeBehavior" value="convertToNull"></property>
+      <property name="useUnicode" value="true"></property>
+      <property name="characterSetResults" value="UTF-8"></property>
+      <property name="characterEncoding" value="UTF-8"></property>
     </jdbc-connection-pool>
     <jdbc-resource pool-name="mysql_GestionStock_rootPool" jndi-name="jdbc/gestionstock"></jdbc-resource>
+
+INSERT IN SERVER
+      <resource-ref ref="jdbc/jdbc/gestionstock"></resource-ref>
