@@ -133,7 +133,7 @@ public class Destination implements Serializable {
 
     @Override
     public String toString() {
-        return "net.cofares.Destination[ idDestination=" + idDestination + " ]";
+        return "["+ idDestination + ":"+ referenceDestination+" ]";
     }
     
 }

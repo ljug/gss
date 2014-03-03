@@ -145,7 +145,7 @@ public class Mouvement implements Serializable {
 
     @Override
     public String toString() {
-        return "net.cofares.Mouvement[ idMouvement=" + idMouvement + " ]";
+        return "[" + idMouvement + ":" + idArticle + "De "+ mouvementFrom+ "A " + mouvementTo + " ]";
     }
     
 }
