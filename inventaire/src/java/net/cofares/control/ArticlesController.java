@@ -18,6 +18,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.faces.model.SelectItem;
 
 @Named("articlesController")
 @SessionScoped
@@ -121,6 +122,15 @@ public class ArticlesController implements Serializable {
         return getFacade().findAll();
     }
 
+    public SelectItem[] getFilterArticle() {
+        SelectItem[] la = new SelectItem[getItems().size()+1];
+        int i=0;
+        la[i++] = new SelectItem("", "Select");
+        for (Articles a : getItems()){
+            la[i++] = new SelectItem(a.toString());
+        }
+        return la;
+    }
     @FacesConverter(forClass = Articles.class)
     public static class ArticlesControllerConverter implements Converter {
 

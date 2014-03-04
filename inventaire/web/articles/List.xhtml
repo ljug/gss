@@ -33,13 +33,13 @@
                             </f:facet>
                             <h:outputText value="#{item.idArticle}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="referenceArticle" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListArticlesTitle_referenceArticle}"/>
                             </f:facet>
                             <h:outputText value="#{item.referenceArticle}"/>
                         </p:column>
-                        <p:column>
+                        <p:column filterBy="nomArticle" filterMatchMode="contains">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListArticlesTitle_nomArticle}"/>
                             </f:facet>
