@@ -6,9 +6,11 @@
 
 package net.cofares.sb;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import net.cofares.Articles;
 import net.cofares.Mouvement;
 
 /**
@@ -28,5 +30,7 @@ public class MouvementFacade extends AbstractFacade<Mouvement> {
     public MouvementFacade() {
         super(Mouvement.class);
     }
-    
+    public List<Mouvement> findByArticle(Articles a){
+        return em.createNamedQuery("Mouvement.findByIdArticle").setParameter("idArticle", a).getResultList();
+    }
 }

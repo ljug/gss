@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package net.cofares;
 
 import java.io.Serializable;
@@ -34,9 +33,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Mouvement.findAll", query = "SELECT m FROM Mouvement m"),
     @NamedQuery(name = "Mouvement.findByIdMouvement", query = "SELECT m FROM Mouvement m WHERE m.idMouvement = :idMouvement"),
+    @NamedQuery(name = "Mouvement.findByIdArticle", query = "SELECT m FROM Mouvement m WHERE m.idArticle = :idArticle"),
     @NamedQuery(name = "Mouvement.findByQt", query = "SELECT m FROM Mouvement m WHERE m.qt = :qt"),
     @NamedQuery(name = "Mouvement.findByMouvementcol", query = "SELECT m FROM Mouvement m WHERE m.mouvementcol = :mouvementcol")})
 public class Mouvement implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -145,7 +146,7 @@ public class Mouvement implements Serializable {
 
     @Override
     public String toString() {
-        return "[" + idMouvement + ":" + idArticle + "De "+ mouvementFrom+ "A " + mouvementTo + " ]";
+        return "[" + idMouvement + ":" + idArticle + "De " + mouvementFrom + "A " + mouvementTo + " ]";
     }
-    
+
 }

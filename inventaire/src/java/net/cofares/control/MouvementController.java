@@ -13,6 +13,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.inject.Inject;
 import javax.inject.Named;
 import net.cofares.Mouvement;
 import net.cofares.control.util.JsfUtil;
@@ -75,9 +76,14 @@ public class MouvementController implements Serializable {
         }
     }
 
+    @Inject
+    ArticlesController ac;
+
     public List<Mouvement> getItems() {
-        if (items == null) {
+        if (ac.getSelected() == null) {
             items = getFacade().findAll();
+        } else {
+            items = getFacade().findByArticle(ac.getSelected());
         }
         return items;
     }
