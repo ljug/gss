@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundlePM.ListPlusMoinsTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="PlusMoinsListForm">
+                <p:panel header="#{bundlePM.ListPlusMoinsTitle}">
+                    <p:dataTable id="datalist" value="#{plusMoinsController.items}" var="item"
+                                 
+                                 paginator="true"
+                                 rowKey="#{item.idPM}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundlePM.ListPlusMoinsTitle_idPM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPM}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundlePM.ListPlusMoinsTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{articlesController.getArticles(item.id).toString()}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundlePM.ListPlusMoinsTitle_mto}"/>
+                            </f:facet>
+                            <h:outputText value="#{destinationController.getDestination(item.mto).toString()}"/>
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundlePM.ListPlusMoinsTitle_plusqt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.plusqt}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundlePM.ListPlusMoinsTitle_moinsqt}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.moinsqt}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="TOTAL"/>
+                            </f:facet>
+                            <h:outputText value="#{item.plusqt - item.moinsqt}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            
+        </ui:define>
+    </ui:composition>
+
+</html>

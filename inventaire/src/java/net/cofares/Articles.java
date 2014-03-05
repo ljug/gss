@@ -134,7 +134,7 @@ public class Articles implements Serializable {
 
     @Override
     public String toString() {
-        return "[idArticle:" + referenceArticle + ":" + nomArticle+ "]";
+        return "["+ idArticle+":" + referenceArticle + ":" + nomArticle+ "]";
     }
     
 }
