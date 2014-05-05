@@ -1,4 +1,4 @@
-create view PlusMoins as select t.id, t.mto, f.fr, t.plusqt, f.moinsqt
+create view PlusMoins as select concat (t.id,'.',t.mto) idPM, t.id, t.mto, f.fr, t.plusqt, f.moinsqt
     from ArticleFrom f right join ArticleTo t on (t.id=f.id and t.mto = f.fr)
 
 
